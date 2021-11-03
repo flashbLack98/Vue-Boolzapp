@@ -1,0 +1,37 @@
+.background{
+    height: 100vh;
+    z-index: 0;
+    position: relative;
+}
+
+.background_up{
+    height: 20vh;
+    background-color: rgb(94, 168, 100);
+}
+
+.background_down{
+    height: 80vh;
+    background-color: lightgrey;
+}
+
+.my_container{
+    height: 90vh;
+    width: 80vw;
+    background-color: rgb(172, 150, 168);
+    z-index: 1;
+    position: absolute;
+    top: 5vh;
+    left: 10vw;
+    display: flex;
+}
+
+.my_aside{
+    width: 30%;
+    background-color: red;    
+}
+
+
+.my_main{
+    width: 70%;
+    background-color: blue;
+}
