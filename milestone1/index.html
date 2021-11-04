@@ -52,11 +52,11 @@
                     <div class="container_item">
 
                         <!-- USER 1 -->
-                        <div class="aside_itemChat" v-for="user,i in userList">
-                            <div class=" aside_itemChat_img"><img :src="'../img/' + user.imgUrl" alt=""></div>
+                        <div class="aside_itemChat" v-for="user,i in contacts">
+                            <div class=" aside_itemChat_img"><img :src="`../img/avatar${user.avatar}.jpg`" alt=""></div>
                             <div>
                                 <h4>{{ user.name }}</h4>
-                                <p>messagio</p>
+                                <p>{{ user.messages[user.messages.length - 1].text }}</p>
                             </div>
                         </div>
 
@@ -106,7 +106,7 @@
 
                 <div class="main_textBar">
                     <i class="far fa-smile"></i>
-                    <input type="text" placeholder="     Scrivi un messagio">
+                    <input type="text" placeholder="     Scrivi un messagio" v:model="newMessage">
                     <i class="fas fa-microphone"></i>
                 </div>
 
