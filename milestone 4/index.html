@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>Boolzapp</title>
+</head>
+
+<body>
+    <div class="background">
+        <div class="background_up"></div>
+        <div class="background_down"></div>
+
+        <div id="app" class="my_container">
+
+            <!-- ASIDE -->
+            <div class="my_aside">
+                <div class="aside_nav">
+                    <img src="../img/avatar_io.jpg" alt="Foto Profilo">
+                    <h4>Nome Utente</h4>
+                    <div class="aside_icon_container">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+
+                <div class="aside_notifications">
+                    <i class="fas fa-bell-slash"></i>
+                    <div class="notifications_text">
+                        <p>Ricevi notifiche di nuovi messagi</p>
+                        <a class="text-white" href="#">Attiva notifiche desktop</a>
+                    </div>
+                </div>
+
+                <div class="chat_list">
+                    <div class="container_searchbar">
+                        <i class="fas fa-search"></i>
+                        <input v-model="searchUser" type="text" placeholder="    cerca o inizia una nuova chat">
+                    </div>
+
+                    <!-- lista user -->
+                    <div class="container_item">
+
+                        <!-- USER 1 -->
+                        <div class="aside_itemChat" v-for="user,i in letterArray()" @click="pushNewContact(user)">
+                            <div class=" aside_itemChat_img"><img :src="`../img/avatar${user.avatar}.jpg`" alt=""></div>
+                            <div>
+                                <h4>{{ user.name }}</h4>
+                                <p>{{ user.messages[user.messages.length - 1].text }}</p>
+
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="my_main">
+                <div class="main_nav">
+
+                    <img :src="`../img/avatar${currentContact.avatar}.jpg`" alt="">
+
+                    <div class="main_nav_textContainer">
+                        <h4>{{currentContact.name}}</h4>
+                        <p>Ultimo accesso oggi alle 16:52:22</p>
+                    </div>
+                    <div class="main_icon_container">
+                        <i class="fas fa-search"></i>
+                        <i class="fas fa-paperclip"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+
+                <div class="main_chat">
+
+                    <!-- SINGLE MESSAGE -->
+                    <div :class="messages.status === 'sent' ? 'row_message_me' : 'row_message_user'"
+                        v-for="messages in currentContact.messages">
+                        <div class="main_message" :class="messages.status === 'sent' ? 'me' : 'user'">
+                            <p>{{messages.text}}</p>
+                            <p>{{ messages.date }}</p>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="main_textBar">
+                    <i class="far fa-smile"></i>
+                    <input type="text" placeholder="     Scrivi un messagio" v-model="newMessage">
+                    <i @click="printNewMessage" class="fas fa-microphone"></i>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
+<!-- MODIFICARE IN CSS LA DATA DEI MESSAGI -->
