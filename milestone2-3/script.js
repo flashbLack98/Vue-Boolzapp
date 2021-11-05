@@ -91,23 +91,35 @@ const vueApp = new Vue({
                 ],
             },
         ],
-        newMessage: {
-            date: '10/01/2020 15:30:55',
-            text: '',
-            status: 'sent'
-        },
-        currentContact: {
 
-        }
+        newMessage: "",
+
+        currentContact: {}
+
     },
     methods: {
-        pushNewMessage() {
-            this.contacts[0].messages.push(this.newMessage);
+        printNewMessage() {
+            this.currentContact.messages.push({
+                date: '10/01/2020 15:30:55',
+                text: this.newMessage,
+                status: "sent"
+            });
+            this.newMessage = "";
+
+            setTimeout(() => {
+                this.currentContact.messages.push({
+                    date: '10/01/2020 15:30:55',
+                    text: "ok",
+                    status: "received"
+                });
+            }, 1000);
         },
+
         pushNewContact(contatto) {
             this.currentContact = contatto;
         },
     },
+
     mounted() {
         this.currentContact = this.contacts[0];
     }
