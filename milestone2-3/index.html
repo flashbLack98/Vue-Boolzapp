@@ -52,7 +52,7 @@
                     <div class="container_item">
 
                         <!-- USER 1 -->
-                        <div class="aside_itemChat" v-for="user,i in contacts">
+                        <div class="aside_itemChat" v-for="user,i in contacts" @click="pushNewContact(user)">
                             <div class=" aside_itemChat_img"><img :src="`../img/avatar${user.avatar}.jpg`" alt=""></div>
                             <div>
                                 <h4>{{ user.name }}</h4>
@@ -72,10 +72,10 @@
             <div class="my_main">
                 <div class="main_nav">
 
-                    <img src="../img/avatar_1.jpg" alt="">
+                    <img :src="`../img/avatar${currentContact.avatar}.jpg`" alt="">
 
                     <div class="main_nav_textContainer">
-                        <h4>Michele</h4>
+                        <h4>{{currentContact.name}}</h4>
                         <p>Ultimo accesso oggi alle 16:52:22</p>
                     </div>
                     <div class="main_icon_container">
@@ -87,21 +87,16 @@
 
                 <div class="main_chat">
 
-                    <div class="row_message_me">
-                        <p class="main_message me">ciao</p>
+                    <!-- SINGLE MESSAGE -->
+                    <div :class="messages.status === 'sent' ? 'row_message_me' : 'row_message_user'"
+                        v-for="messages in currentContact.messages">
+                        <div class="main_message" :class="messages.status === 'sent' ? 'me' : 'user'">
+                            <p>{{messages.text}}</p>
+                            <p>{{ messages.date }}</p>
+
+                        </div>
                     </div>
 
-                    <div class="row_message_user">
-                        <p class="main_message user">{{ contacts[0].messages[0].text }}</p>
-                    </div>
-
-                    <div class="row_message_me">
-                        <p class="main_message me">come stai?</p>
-                    </div>
-
-                    <div class="row_message_user">
-                        <p class="main_message user">tutto bene</p>
-                    </div>
 
                 </div>
 
@@ -119,3 +114,6 @@
 </body>
 
 </html>
+
+
+<!-- MODIFICARE IN CSS LA DATA DEI MESSAGI -->

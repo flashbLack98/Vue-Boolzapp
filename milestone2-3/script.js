@@ -95,11 +95,23 @@ const vueApp = new Vue({
             date: '10/01/2020 15:30:55',
             text: '',
             status: 'sent'
+        },
+        currentContact: {
+
         }
     },
     methods: {
         pushNewMessage() {
             this.contacts[0].messages.push(this.newMessage);
-        }
+        },
+        pushNewContact(contatto) {
+            this.currentContact = contatto;
+        },
+    },
+    mounted() {
+        this.currentContact = this.contacts[0];
     }
 });
+
+//  quando clicco sugli utenti a sx deve apparire la loro conversazione
+//  far si che parta una funzione quando schiaccio un utente
