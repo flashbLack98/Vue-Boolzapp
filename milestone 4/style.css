@@ -183,7 +183,8 @@
 
 .main_chat{
     flex-grow: 1;
-    background-image: url(../img/mine.jpg)
+    background-image: url(../img/mine.jpg);
+    overflow: auto;
 }
 
 .row_message_me{
