@@ -93,7 +93,7 @@
                         v-for="messages in currentContact.messages">
                         <div class="main_message" :class="messages.status === 'sent' ? 'me' : 'user'">
                             <p>{{messages.text}}</p>
-                            <p>{{ messages.date }}</p>
+                            <p class="main_message_date">{{ messages.date }}</p>
 
                         </div>
                     </div>
@@ -103,8 +103,8 @@
 
                 <div class="main_textBar">
                     <i class="far fa-smile"></i>
-                    <input type="text" placeholder="     Scrivi un messagio" v-model="newMessage">
-                    <i @click="printNewMessage" class="fas fa-microphone"></i>
+                    <input type="text" placeholder="Scrivi un messagio" v-model="newMessage">
+                    <i @click="printNewMessage" :class="newMessage ? 'fas fa-paper-plane': 'fas fa-microphone'"></i>
                 </div>
 
             </div>
@@ -115,6 +115,5 @@
 </body>
 
 </html>
-
 
 <!-- MODIFICARE IN CSS LA DATA DEI MESSAGI -->

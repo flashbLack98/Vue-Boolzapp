@@ -195,16 +195,28 @@
     padding: 5px;
 }
 
-.main_message.me{
-    padding: 5px;
+.main_message{
+    position: relative;
+    padding: 10px 7px 20px;
     border-radius: 10px;
+    min-width: 105px;
+}
+
+.main_message.me{
     background-color: #d5f9be;
 }
 
 .main_message.user{
-    padding: 5px;
-    border-radius: 10px;
     background-color: white;
+}
+
+.main_message_date{
+    position: absolute;
+    font-size: 10px;
+    right: 8px;
+    bottom: 4px;
+    color: grey;
+
 }
 
 .main_textBar{
@@ -222,4 +234,9 @@
 .main_textBar input{
     flex-grow: 1;
     border: 0;
+    padding-left: 13px;
+}
+
+.grey{
+    background-color: grey;
 }

@@ -94,6 +94,8 @@ const vueApp = new Vue({
 
         newMessage: "",
 
+        randomMessage: ["Si", "No", "Forse", "Tutto bene!", "Non ho capito", "Tu invece", "Può darsi", "Qualche volta"],
+
         searchUser: "",
 
         currentContact: {}
@@ -111,7 +113,7 @@ const vueApp = new Vue({
             setTimeout(() => {
                 this.currentContact.messages.push({
                     date: '10/01/2020 15:30:55',
-                    text: "ok",
+                    text: this.randomMessage[3],
                     status: "received"
                 });
             }, 1000);
@@ -136,3 +138,7 @@ const vueApp = new Vue({
 });
 
 //quando scrivo nella searchbar devono apparire solo gli utenti con quelle iniziali
+
+//quando inserisco caratteri nell'input il bottone del microfono deve cambiare
+
+//quando scrivo un messaggio devo avere una risposta random
