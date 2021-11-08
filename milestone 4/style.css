@@ -104,12 +104,14 @@
 .container_searchbar i{
     color: grey;
     background-color: white;
+    padding-right: 5px;
 }
 
 .container_searchbar input{
     border: 0;
     flex-grow: 1;
     border: lightgrey 1px solid;
+    height: 20px;
 }
 
 

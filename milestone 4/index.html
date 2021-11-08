@@ -103,7 +103,8 @@
 
                 <div class="main_textBar">
                     <i class="far fa-smile"></i>
-                    <input type="text" placeholder="Scrivi un messagio" v-model="newMessage">
+                    <input type="text" placeholder="Scrivi un messagio" v-model="newMessage"
+                        v-on:keyup.enter="printNewMessage">
                     <i @click="printNewMessage" :class="newMessage ? 'fas fa-paper-plane': 'fas fa-microphone'"></i>
                 </div>
 
