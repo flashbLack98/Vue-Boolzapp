@@ -243,3 +243,13 @@
 .grey{
     background-color: grey;
 }
+
+/* -------------------SCROLLBAR------------------ */
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(179, 179, 179);
+    border-radius: 10px;
+  }
